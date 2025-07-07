@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 	if is_dead == false:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED
-			$sprite.flip_h = false
+			$sprite.scale.x = 1
 			$sprite.play("up")
 		elif Input.is_action_pressed("ui_left"):
 			velocity.x = -SPEED
-			$sprite.flip_h = true
+			$sprite.scale.x = -1
 			$sprite.play("up")
 		else:
 			velocity.x = 0
