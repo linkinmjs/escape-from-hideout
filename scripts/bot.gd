@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var bot = $BotSprite
 @onready var enter_hint_label = $Label
 @onready var bot_camera = $Camera2D
+@onready var bot_access = $BotCollision/Area2D/BotAccess
 
 @export var move_speed = 100.0
 @export var jump_height: float = 10.0
@@ -15,8 +16,10 @@ extends CharacterBody2D
 
 var active_player = false
 
+
 func _ready() -> void:
 	enter_hint_label.visible = false
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if not active_player: return
@@ -72,13 +75,15 @@ func _control_bot():
 	var player = get_tree().get_first_node_in_group("player")
 	active_player = true
 	player.queue_free()
+	GameManager.is_mounted = true
 	bot_camera.enabled = true
 
 func _leave_bot():
 	var player = preload("res://scenes/player.tscn").instantiate()
 	active_player = false
 	get_tree().current_scene.add_child(player)
-	player.global_position = global_position
+	player.global_position = bot_access.global_position
+	GameManager.is_mounted = false
 	bot_camera.enabled = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
