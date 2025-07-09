@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_jump"):
 			velocity.y = JUMP_POWER * acceleration
 			acceleration = acceleration + 0.1
-			$sprite.play("jump")
+			player.play("jump")
 			#$sounds/burnSound.play()
 		else:
 			acceleration = 0.1
