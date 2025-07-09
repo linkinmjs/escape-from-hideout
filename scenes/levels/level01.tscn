@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://wdqnj008pue1"]
+[gd_scene load_steps=7 format=4 uid="uid://wdqnj008pue1"]
 
 [ext_resource type="Texture2D" uid="uid://b5qdvhlp6pm18" path="res://assets/tilesets/industrial-zone.png" id="1_3n7h2"]
 [ext_resource type="PackedScene" uid="uid://dk38r8s51101l" path="res://scenes/player.tscn" id="3_g0jr5"]
 [ext_resource type="PackedScene" uid="uid://cbcuiyo5p08hy" path="res://scenes/bot01.tscn" id="3_i4uh8"]
+[ext_resource type="Texture2D" uid="uid://clejyqanuotfr" path="res://assets/measuring_background.png" id="4_i4uh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msin7"]
 texture = ExtResource("1_3n7h2")
@@ -294,3 +295,7 @@ position = Vector2(128, 71)
 
 [node name="Bot01" parent="." instance=ExtResource("3_i4uh8")]
 position = Vector2(84, 67)
+
+[node name="MeasuringBackground" type="Sprite2D" parent="."]
+position = Vector2(390, 81)
+texture = ExtResource("4_i4uh8")
