@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Hideout Defender"
-run/main_scene="uid://wdqnj008pue1"
+run/main_scene="uid://dmlm3re4r4r8p"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
+GameDebugManager="*res://scripts/game_debug_manager.gd"
 
 [display]
 
