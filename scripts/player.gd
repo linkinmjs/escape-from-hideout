@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-@export var move_speed = 200
+@onready var player = $PlayerSprite
 
-@export var jump_height: float
-@export var jump_time_to_peak: float
-@export var jump_time_to_descent: float
+@export var move_speed = 100.0
+@export var jump_height: float = 50.0
+@export var jump_time_to_peak: float = 0.4
+@export var jump_time_to_descent: float = 0.4
 
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
-@onready var player = $PlayerSprite
 
 func _ready() -> void:
 	add_to_group("player")

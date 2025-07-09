@@ -104,12 +104,8 @@ animations = [{
 size = Vector2(18, 33.8125)
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.35, 0.35)
 script = ExtResource("1_g2els")
-move_speed = 100
-jump_height = 50.0
-jump_time_to_peak = 0.4
-jump_time_to_descent = 0.4
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f1ej7")
@@ -121,4 +117,4 @@ position = Vector2(0, 7.09375)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" parent="." instance=ExtResource("3_qhqgy")]
-zoom = Vector2(5, 5)
+zoom = Vector2(7, 7)
