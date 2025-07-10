@@ -292,12 +292,11 @@ tile_set = SubResource("TileSet_g0jr5")
 [node name="BigDoor" parent="." instance=ExtResource("2_mxx8o")]
 position = Vector2(48, 44)
 send_to_level = 1
-is_open = true
+is_big_door = true
 
 [node name="Door" parent="." instance=ExtResource("3_4m5u4")]
 position = Vector2(48, 214)
 send_to_level = 1
-is_open = true
 
 [node name="Door2" parent="." instance=ExtResource("3_4m5u4")]
 position = Vector2(690, 22)

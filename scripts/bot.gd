@@ -19,7 +19,6 @@ var active_player = false
 
 func _ready() -> void:
 	enter_hint_label.visible = false
-	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if not active_player: return

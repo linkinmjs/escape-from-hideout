@@ -3,6 +3,7 @@ extends Node2D
 @export var send_to_level = 0
 @export var is_bloqued = false
 @export var is_open = false
+@export var is_big_door = false
 
 @onready var door = $DoorSprite
 @onready var label = $Label
@@ -36,9 +37,15 @@ func open():
 	is_open = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		player_close = true
+	if body.is_in_group("player") or body.is_in_group("bot"):
+		if is_big_door and GameManager.is_mounted:
+			player_close = true
+		elif !is_big_door and !GameManager.is_mounted:
+			player_close = true	
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		player_close = false
+	if body.is_in_group("player") or body.is_in_group("bot"):
+		if is_big_door and GameManager.is_mounted:
+			player_close = false
+		elif !is_big_door and !GameManager.is_mounted:
+			player_close = false

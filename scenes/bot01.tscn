@@ -134,7 +134,7 @@ size = Vector2(25, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kwi3"]
 size = Vector2(18.5, 1.5)
 
-[node name="Bot01" type="CharacterBody2D"]
+[node name="Bot01" type="CharacterBody2D" groups=["bot"]]
 script = ExtResource("1_pdtv8")
 
 [node name="BotSprite" type="AnimatedSprite2D" parent="."]

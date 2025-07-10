@@ -103,7 +103,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(18, 33.8125)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_g2els")
 move_speed = 80.0
