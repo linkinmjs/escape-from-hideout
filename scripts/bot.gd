@@ -23,7 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not active_player: return
 	
-	if GameManager.is_dead == false:
+	if GameManager.is_dead == false and GameManager.is_mounted:
 		velocity.y += get_bot_gravity() * delta
 		velocity.x = get_input_velocity() * move_speed
 			
