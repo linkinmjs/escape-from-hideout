@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm60bm720ey22"
+path="res://.godot/imported/watching you.mp3-644ac98cbdf37e2dab1b5085e413efbd.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/themes/watching you.mp3"
+dest_files=["res://.godot/imported/watching you.mp3-644ac98cbdf37e2dab1b5085e413efbd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

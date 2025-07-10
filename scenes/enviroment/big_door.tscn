@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://lkhc41d5xuvo"]
 
 [ext_resource type="Script" uid="uid://d0xfopkgq5l0v" path="res://scripts/door.gd" id="1_w87ei"]
-[ext_resource type="Texture2D" uid="uid://bnplrwil2axtc" path="res://assets/door_6.png" id="2_w87ei"]
+[ext_resource type="Texture2D" uid="uid://bnplrwil2axtc" path="res://assets/sprites/enviroment/door_6.png" id="2_w87ei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4buos"]
 atlas = ExtResource("2_w87ei")
@@ -86,7 +86,7 @@ script = ExtResource("1_w87ei")
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -12)
 sprite_frames = SubResource("SpriteFrames_xguhv")
-animation = &"opening"
+animation = &"close"
 
 [node name="Area2D" type="Area2D" parent="."]
 

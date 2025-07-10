@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("ui_jump"):
 			jump()
 		
+		update_sounds()
+		
 		update_animation()
 		move_and_slide()
 	
@@ -63,6 +65,13 @@ func update_animation():
 		bot.play("move")
 	else:
 		bot.play("idle")
+
+func update_sounds():
+	# TODO: está silenciado
+	if !Input.is_action_pressed("ui_jump") and (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")):
+		$Sounds/moving.stop() 
+	elif Input.is_action_pressed("ui_jump"):
+		$Sounds/up.stop()
 
 func _input(event):
 	if event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:

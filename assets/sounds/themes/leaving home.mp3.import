@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmxyxa35elmwo"
+path="res://.godot/imported/leaving home.mp3-35700d13b91185b0cc3fe81b30451e7f.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/themes/leaving home.mp3"
+dest_files=["res://.godot/imported/leaving home.mp3-35700d13b91185b0cc3fe81b30451e7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

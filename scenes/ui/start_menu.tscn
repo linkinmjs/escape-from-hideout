@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://daaxy6ioh402d"]
+
+[ext_resource type="FontFile" uid="uid://r22gvccm5vx1" path="res://assets/ui/font/CyberpunkCraftpixPixel.otf" id="1_0kjv3"]
+[ext_resource type="Script" uid="uid://cx1ld3t3rtadg" path="res://scenes/ui/start_menu.gd" id="1_irhji"]
+[ext_resource type="Texture2D" uid="uid://jo3lfldk5pwm" path="res://assets/start_menu.png" id="3_m0hmm"]
+[ext_resource type="AudioStream" uid="uid://dvh3tg4xyp507" path="res://assets/sounds/themes/abandoned.mp3" id="4_km2yg"]
+[ext_resource type="AudioStream" uid="uid://2o0pboh00nim" path="res://assets/sounds/Blip17.wav" id="5_x0g8l"]
+[ext_resource type="AudioStream" uid="uid://ctum74cvafwn0" path="res://assets/sounds/Pickup7.wav" id="6_i11hm"]
+
+[sub_resource type="Theme" id="Theme_m0hmm"]
+default_font = ExtResource("1_0kjv3")
+default_font_size = 50
+
+[node name="StartMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_m0hmm")
+script = ExtResource("1_irhji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(615, 441)
+scale = Vector2(0.876953, 0.876953)
+texture = ExtResource("3_m0hmm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Comenzar juego"
+
+[node name="options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "opciones"
+
+[node name="exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "salir"
+
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="theme" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("4_km2yg")
+
+[node name="hover_button" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("5_x0g8l")
+
+[node name="select" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("6_i11hm")
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

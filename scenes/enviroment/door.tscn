@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cf52hgy5kuug3"]
 
-[ext_resource type="Texture2D" uid="uid://301yjw1hohjw" path="res://assets/door_2.png" id="1_3klei"]
+[ext_resource type="Texture2D" uid="uid://301yjw1hohjw" path="res://assets/sprites/enviroment/door_2.png" id="1_3klei"]
 [ext_resource type="Script" uid="uid://d0xfopkgq5l0v" path="res://scripts/door.gd" id="1_h1ryw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1ryw"]
@@ -66,7 +66,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"opening",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqacd"]

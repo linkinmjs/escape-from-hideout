@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q1yp10nymfky"
+path="res://.godot/imported/time is ticking.mp3-91f767936b318e751a62bca849bcb6ad.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/themes/time is ticking.mp3"
+dest_files=["res://.godot/imported/time is ticking.mp3-91f767936b318e751a62bca849bcb6ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

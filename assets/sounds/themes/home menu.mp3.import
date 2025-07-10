@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpj75mw3knfn8"
+path="res://.godot/imported/home menu.mp3-ece33a35de73466bdf34c013ecc2d006.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/themes/home menu.mp3"
+dest_files=["res://.godot/imported/home menu.mp3-ece33a35de73466bdf34c013ecc2d006.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

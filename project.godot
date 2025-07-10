@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Hideout Defender"
+config/name="Escape From Hideout"
 run/main_scene="uid://dmlm3re4r4r8p"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
