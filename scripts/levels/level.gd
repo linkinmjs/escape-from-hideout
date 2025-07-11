@@ -1,7 +1,11 @@
 extends Node2D
 
+@export var level = 0
+
 func _ready() -> void:
 	spawn_player()
+	LevelManager.actual_level = level
+	print("print desde level: %d" %level)
 
 func spawn_player():
 	var doors_node = get_node("Doors")

@@ -72,7 +72,6 @@ func _input(event):
 		if !GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:
 			_control_bot()
 		elif GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed():
-			GameManager.bot_last_position = bot.global_position
 			_leave_bot()
 
 func _control_bot():
@@ -87,6 +86,9 @@ func _leave_bot():
 	get_tree().current_scene.add_child(player)
 	player.global_position = bot_access.global_position
 	GameManager.is_mounted = false
+	GameManager.bot_last_position = bot.global_positione
+	GameManager.bot_last_level = LevelManager.actual_level
+	print("Bot dejado en el level %d" % GameManager.bot_last_level)
 	bot_camera.enabled = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

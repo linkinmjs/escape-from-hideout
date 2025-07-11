@@ -6,7 +6,6 @@ var doors_blocked = [2, 4, 6, 8]
 var doors_opened = [2, 4, 6, 8]
 
 func change_level(next_level: int):
-	actual_level = next_level
 	get_tree().change_scene_to_file("res://scenes/levels/level0%d.tscn" % next_level)
 
 

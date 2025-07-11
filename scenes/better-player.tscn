@@ -1,0 +1,145 @@
+[gd_scene load_steps=22 format=3 uid="uid://v3a1nr0jeeyd"]
+
+[ext_resource type="Script" uid="uid://dngx0nbitt6j" path="res://scripts/better_player.gd" id="1_3vctn"]
+[ext_resource type="Texture2D" uid="uid://b6prka4cvr8tv" path="res://assets/sprites/worker/Idle.png" id="2_3vctn"]
+[ext_resource type="Texture2D" uid="uid://c6l3b2gmettce" path="res://assets/sprites/worker/Run.png" id="3_iflp1"]
+[ext_resource type="PackedScene" uid="uid://3ovptrr18u0v" path="res://scenes/camera.tscn" id="4_4ir87"]
+[ext_resource type="AudioStream" uid="uid://dgcgsh26mv36y" path="res://assets/sounds/walk.wav" id="5_nc2qe"]
+[ext_resource type="AudioStream" uid="uid://dts8uc8r40mgq" path="res://assets/backgrounds/Jump21.wav" id="6_km43k"]
+[ext_resource type="Script" uid="uid://cmhll35vagtby" path="res://scripts/player_control.gd" id="7_iflp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_3vctn")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_3vctn")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_3vctn")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_3vctn")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("3_iflp1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(18, 33.8125)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_3vctn")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f1ej7")
+animation = &"jump"
+frame = 1
+frame_progress = 1.0
+offset = Vector2(9, 0)
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.09375)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_4ir87")]
+zoom = Vector2(7, 7)
+
+[node name="Sounds" type="Node2D" parent="."]
+visible = false
+
+[node name="walk" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_nc2qe")
+
+[node name="jump" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_km43k")
+pitch_scale = 0.9
+
+[node name="PlayerControl" type="Node" parent="."]
+script = ExtResource("7_iflp1")
