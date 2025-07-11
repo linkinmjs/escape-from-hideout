@@ -11,8 +11,8 @@ extends CharacterBody2D
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
-func _ready() -> void:
-	add_to_group("player")
+func _ready():
+	$PlayerSprite.frame_changed.connect(_on_frame_changed)
 
 func _physics_process(delta):
 	if GameManager.is_dead == false:
@@ -30,6 +30,7 @@ func get_player_gravity() -> float:
 
 func jump():
 	velocity.y = jump_velocity
+	$Sounds/jump.play()
 
 func get_input_velocity() -> float:
 	var horizontal := 0.0
@@ -50,3 +51,9 @@ func update_animation():
 		player.play("walk")
 	else:
 		player.play("idle")
+
+func _on_frame_changed():
+	if $PlayerSprite.animation == "walk":
+		if $PlayerSprite.frame == 0 or $PlayerSprite.frame == 3:
+			if not $Sounds/walk.playing:
+				$Sounds/walk.play()

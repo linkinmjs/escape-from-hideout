@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dk38r8s51101l"]
+[gd_scene load_steps=21 format=3 uid="uid://dk38r8s51101l"]
 
 [ext_resource type="Script" uid="uid://bnbjojx7mue27" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b6prka4cvr8tv" path="res://assets/sprites/worker/Idle.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://3ovptrr18u0v" path="res://scenes/camera.tscn" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c6l3b2gmettce" path="res://assets/sprites/worker/Run.png" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dgcgsh26mv36y" path="res://assets/sounds/walk.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dts8uc8r40mgq" path="res://assets/sounds/Jump21.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_dqkch")
@@ -76,12 +78,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y4r1p")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_d2wvv")
 }],
 "loop": false,
 "name": &"jump",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -128,3 +130,14 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" parent="." instance=ExtResource("3_qhqgy")]
 zoom = Vector2(7, 7)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="walk" type="AudioStreamPlayer2D" parent="Sounds"]
+scale = Vector2(1, 1)
+stream = ExtResource("5_qlg0r")
+
+[node name="jump" type="AudioStreamPlayer2D" parent="Sounds"]
+scale = Vector2(1, 1)
+stream = ExtResource("6_tuyoq")
+pitch_scale = 0.9

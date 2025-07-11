@@ -289,11 +289,13 @@ tile_proxies/coords_level = [[1, Vector2i(0, 0)], [82, Vector2i(0, 0)], [2, Vect
 
 [node name="Level01" type="Node2D"]
 
-[node name="Door" parent="." instance=ExtResource("5_chssp")]
+[node name="doors" type="Node2D" parent="."]
+
+[node name="Door" parent="doors" instance=ExtResource("5_chssp")]
 position = Vector2(656, 214)
 send_to_level = 2
 
-[node name="BigDoor" parent="." instance=ExtResource("2_chssp")]
+[node name="BigDoor" parent="doors" instance=ExtResource("2_chssp")]
 position = Vector2(685, 44)
 send_to_level = 2
 is_big_door = true
@@ -303,16 +305,18 @@ tile_map_data = PackedByteArray("AAD/////UgAEAAEAAAAAAP//UgAEAAIAAAABAP//UgAEAAI
 tile_set = SubResource("TileSet_g0jr5")
 
 [node name="Player" parent="." instance=ExtResource("3_g0jr5")]
-position = Vector2(548, 84)
+position = Vector2(65, 197)
 
 [node name="MeasuringBackground" type="Sprite2D" parent="."]
 position = Vector2(4, 112)
 texture = ExtResource("4_i4uh8")
 
 [node name="Bot01" parent="." instance=ExtResource("5_qwlqn")]
-position = Vector2(621, 47)
+position = Vector2(318, 206)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="level_theme" type="AudioStreamPlayer2D" parent="sounds"]
 stream = ExtResource("7_3yqkj")
 pitch_scale = 0.8
 panning_strength = 0.0

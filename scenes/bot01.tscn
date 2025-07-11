@@ -163,15 +163,10 @@ text = "E"
 [node name="Camera2D" parent="." instance=ExtResource("6_lo4yp")]
 enabled = false
 
-[node name="Sounds" type="Node2D" parent="."]
+[node name="sounds" type="Node2D" parent="."]
 
-[node name="up" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="moving" type="AudioStreamPlayer2D" parent="sounds"]
 stream = ExtResource("7_m24fc")
-pitch_scale = 0.15
-
-[node name="moving" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("7_m24fc")
-pitch_scale = 0.2
 
 [connection signal="body_entered" from="BotCollision/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="BotCollision/Area2D" to="." method="_on_area_2d_body_exited"]

@@ -19,6 +19,7 @@ var active_player = false
 
 func _ready() -> void:
 	enter_hint_label.visible = false
+	$BotSprite.frame_changed.connect(_on_frame_changed)
 
 func _physics_process(delta: float) -> void:
 	if not active_player: return
@@ -29,8 +30,6 @@ func _physics_process(delta: float) -> void:
 			
 		if Input.is_action_pressed("ui_jump"):
 			jump()
-		
-		update_sounds()
 		
 		update_animation()
 		move_and_slide()
@@ -66,13 +65,6 @@ func update_animation():
 	else:
 		bot.play("idle")
 
-func update_sounds():
-	# TODO: está silenciado
-	if !Input.is_action_pressed("ui_jump") and (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")):
-		$Sounds/moving.stop() 
-	elif Input.is_action_pressed("ui_jump"):
-		$Sounds/up.stop()
-
 func _input(event):
 	if event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:
 		_control_bot()
@@ -87,6 +79,7 @@ func _control_bot():
 	bot_camera.enabled = true
 
 func _leave_bot():
+	bot.play("idle")
 	var player = preload("res://scenes/player.tscn").instantiate()
 	active_player = false
 	get_tree().current_scene.add_child(player)
@@ -101,3 +94,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == get_tree().get_first_node_in_group("player"):
 		enter_hint_label.hide()
+
+func _on_frame_changed():
+	if $BotSprite.animation == "move":
+		if $BotSprite.frame == 1 or $BotSprite.frame == 3:
+			if not $sounds/moving.playing:
+				$sounds/moving.play()
