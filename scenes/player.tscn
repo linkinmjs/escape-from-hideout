@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3ovptrr18u0v" path="res://scenes/camera.tscn" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c6l3b2gmettce" path="res://assets/sprites/worker/Run.png" id="3_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://dgcgsh26mv36y" path="res://assets/sounds/walk.wav" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://dts8uc8r40mgq" path="res://assets/sounds/Jump21.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://dts8uc8r40mgq" path="res://assets/backgrounds/Jump21.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_dqkch")
@@ -134,10 +134,8 @@ zoom = Vector2(7, 7)
 [node name="Sounds" type="Node2D" parent="."]
 
 [node name="walk" type="AudioStreamPlayer2D" parent="Sounds"]
-scale = Vector2(1, 1)
 stream = ExtResource("5_qlg0r")
 
 [node name="jump" type="AudioStreamPlayer2D" parent="Sounds"]
-scale = Vector2(1, 1)
 stream = ExtResource("6_tuyoq")
 pitch_scale = 0.9

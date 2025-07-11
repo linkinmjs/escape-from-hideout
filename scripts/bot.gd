@@ -14,23 +14,25 @@ extends CharacterBody2D
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
-var active_player = false
-
-
 func _ready() -> void:
 	enter_hint_label.visible = false
 	$BotSprite.frame_changed.connect(_on_frame_changed)
+	if GameManager.is_mounted:
+		bot_camera.enabled = true
+	elif !GameManager.is_mounted && GameManager.initial_bot:
+		bot_camera.enabled = false
 
 func _physics_process(delta: float) -> void:
-	if not active_player: return
-	
-	if GameManager.is_dead == false and GameManager.is_mounted:
-		velocity.y += get_bot_gravity() * delta
-		velocity.x = get_input_velocity() * move_speed
+	if GameManager.is_dead == false:
+		if GameManager.is_mounted:
+			velocity.y += get_bot_gravity() * delta
+			velocity.x = get_input_velocity() * move_speed
+			if Input.is_action_pressed("ui_jump"):
+				jump()
+		# TODO: fix - el Bot se cae instantáneamente cuando
+		if !GameManager.is_mounted:
+			velocity.y += get_bot_gravity() * delta
 			
-		if Input.is_action_pressed("ui_jump"):
-			jump()
-		
 		update_animation()
 		move_and_slide()
 	
@@ -66,14 +68,14 @@ func update_animation():
 		bot.play("idle")
 
 func _input(event):
-	if event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:
-		_control_bot()
-	elif active_player && event.is_action_pressed("ui_action") && event.is_pressed():
-		_leave_bot()
+	if !GameManager.bot_ui_action_disabled:
+		if !GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:
+			_control_bot()
+		elif GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed():
+			_leave_bot()
 
 func _control_bot():
 	var player = get_tree().get_first_node_in_group("player")
-	active_player = true
 	player.queue_free()
 	GameManager.is_mounted = true
 	bot_camera.enabled = true
@@ -81,7 +83,6 @@ func _control_bot():
 func _leave_bot():
 	bot.play("idle")
 	var player = preload("res://scenes/player.tscn").instantiate()
-	active_player = false
 	get_tree().current_scene.add_child(player)
 	player.global_position = bot_access.global_position
 	GameManager.is_mounted = false
