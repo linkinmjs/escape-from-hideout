@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Escape From Hideout"
-run/main_scene="uid://daaxy6ioh402d"
+run/main_scene="uid://begao1ndj4h4v"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
