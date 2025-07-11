@@ -16,3 +16,7 @@ func spawn_bot():
 		bot.global_position = GameManager.bot_last_position
 		print(GameManager.bot_last_position)
 		add_sibling.call_deferred(bot)
+
+
+func _on_player_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.
