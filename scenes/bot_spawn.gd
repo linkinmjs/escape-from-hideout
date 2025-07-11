@@ -13,5 +13,6 @@ func spawn_bot():
 	elif !GameManager.initial_bot && !GameManager.is_mounted:
 		var bot_scene = preload("res://scenes/bot01.tscn")
 		var bot = bot_scene.instantiate()
-		bot.position = GameManager.bot_last_position
-		$BotSpawn.add_sibling(bot)
+		bot.global_position = GameManager.bot_last_position
+		print(GameManager.bot_last_position)
+		add_sibling.call_deferred(bot)

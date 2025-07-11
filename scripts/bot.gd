@@ -72,6 +72,7 @@ func _input(event):
 		if !GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed() && enter_hint_label.visible == true:
 			_control_bot()
 		elif GameManager.is_mounted && event.is_action_pressed("ui_action") && event.is_pressed():
+			GameManager.bot_last_position = bot.global_position
 			_leave_bot()
 
 func _control_bot():
