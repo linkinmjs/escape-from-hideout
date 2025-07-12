@@ -6,8 +6,6 @@ var bot_position = Vector2(106.0, 37.0)
 
 func _ready() -> void:
 	LevelManager.actual_level = level_number
-	print("Nivel ready:")
-	print(LevelManager.actual_level)
 	if GameManager.initial_bot:
 		GameManager.bot_last_level = level_number
 		GameManager.bot_last_position = bot_position
@@ -35,8 +33,6 @@ func spawn_bot():
 					if door.has_method("get_spawn_position"): $Bot01.global_position = door.get_spawn_position()
 	elif !GameManager.is_mounted:
 		if GameManager.bot_last_level != LevelManager.actual_level:
-			print("b_last_lvl y actual = diferentes niveles")
 			$Bot01.queue_free()
 		elif GameManager.bot_last_level == LevelManager.actual_level:
-			print("b_last_lvl y actual = mismos niveles")
 			$Bot01.global_position = GameManager.bot_last_position
