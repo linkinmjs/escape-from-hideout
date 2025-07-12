@@ -82,6 +82,7 @@ size = Vector2(28, 40)
 
 [node name="BigDoor" type="Node2D" groups=["door"]]
 script = ExtResource("1_w87ei")
+is_big_door = true
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -12)

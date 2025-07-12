@@ -86,6 +86,7 @@ func _leave_bot():
 	var player = preload("res://scenes/player.tscn").instantiate()
 	get_tree().current_scene.add_child(player)
 	player.global_position = bot_access.global_position
+	GameManager.bot_last_level = LevelManager.actual_level
 	GameManager.is_mounted = false
 	bot_camera.enabled = false
 

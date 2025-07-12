@@ -11,7 +11,6 @@ extends Node2D
 @onready var label = $Label
 
 var player_close = false
-var mounted_on_bot = GameManager.is_mounted
 
 func _ready() -> void:
 	label.visible = false
@@ -38,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") or body.is_in_group("bot"):
+		
 		if is_big_door and GameManager.is_mounted:
 			player_close = true
 			GameManager.bot_ui_action_disabled = true
