@@ -20,7 +20,9 @@ func spawn_player():
 		if door.has_method("get_number"):
 			var number = door.get_number()
 			if number == LevelManager.door_spawn:
-				if door.has_method("get_spawn_position"): $Player.global_position = door.get_spawn_position()
+				if door.has_method("get_spawn_position"): 
+					$Player.global_position = door.get_spawn_position()
+					door.is_open = true
 
 func spawn_bot():
 	if GameManager.is_mounted:

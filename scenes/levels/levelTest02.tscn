@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c2welhe6vxoc7"]
+[gd_scene load_steps=13 format=4 uid="uid://c2welhe6vxoc7"]
 
 [ext_resource type="Script" uid="uid://dwy6wegrkx0ax" path="res://scripts/levels/level_test.gd" id="1_thmdt"]
 [ext_resource type="PackedScene" uid="uid://dl40600a6um01" path="res://scenes/levels/background.tscn" id="2_n3e48"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ccv506sfnc50f" path="res://assets/sounds/theme_01.wav" id="5_rkhsy"]
 [ext_resource type="PackedScene" uid="uid://dk38r8s51101l" path="res://scenes/player.tscn" id="6_dj8vn"]
 [ext_resource type="PackedScene" uid="uid://br5n7wta0qibi" path="res://scenes/bot01.tscn" id="7_j66s7"]
+[ext_resource type="PackedScene" uid="uid://y4u8ueirpudo" path="res://scenes/enviroment/switch.tscn" id="10_alsam"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msin7"]
 texture = ExtResource("3_vpwkg")
@@ -330,3 +331,8 @@ position = Vector2(59, 43)
 
 [node name="Bot01" parent="." instance=ExtResource("7_j66s7")]
 position = Vector2(106, 37)
+
+[node name="Switch" parent="." instance=ExtResource("10_alsam")]
+position = Vector2(242, 57)
+unlocked_door = 2
+switch_number = 2

@@ -2,8 +2,9 @@ extends Node
 
 var actual_level = 1
 var door_spawn = 0
-var doors_blocked = [2, 4, 6, 8]
-var doors_opened = [2, 4, 6, 8]
+var doors_blocked = [1, 2, 4, 6, 8]
+var doors_opened = [0]
+var switchs_turned_off = [0]
 
 var player_spawn_position = Vector2()
 
@@ -18,3 +19,15 @@ func check_doors_blocked():
 			if not doors_blocked.has(number):
 				if door.has_method("unlock"):
 					door.unlock()
+					
+func check_switch_off():
+	var switchs_node = get_node("Switch")
+	for switch in switchs_node.get_children():
+		if switch.has_method("get_number"):
+			var number = switch.get_number()
+			if not doors_blocked.has(number):
+				if switch.has_method("unlock"):
+					switch.unlock()
+
+func game_over():
+	get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
