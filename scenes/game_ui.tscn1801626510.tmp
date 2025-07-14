@@ -76,7 +76,6 @@ grow_vertical = 0
 alignment = 2
 
 [node name="InactiveWeapons" type="Label" parent="HBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.67678, 0.108749, 3.85046e-07, 1)
 theme_override_fonts/font = ExtResource("2_rns2u")
@@ -84,6 +83,7 @@ theme_override_font_sizes/font_size = 22
 text = "[ Armas Desactivadas ]"
 
 [node name="LabelTimer" type="Timer" parent="HBoxContainer/InactiveWeapons"]
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="HBoxContainer/InactiveWeapons/LabelTimer" to="." method="_on_label_timer_timeout"]

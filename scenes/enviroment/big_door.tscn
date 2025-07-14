@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://lkhc41d5xuvo"]
+[gd_scene load_steps=12 format=3 uid="uid://lkhc41d5xuvo"]
 
 [ext_resource type="Script" uid="uid://d0xfopkgq5l0v" path="res://scripts/door.gd" id="1_w87ei"]
 [ext_resource type="Texture2D" uid="uid://bnplrwil2axtc" path="res://assets/sprites/enviroment/door_6.png" id="2_w87ei"]
@@ -7,9 +7,9 @@
 atlas = ExtResource("2_w87ei")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5fgp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi5wo"]
 atlas = ExtResource("2_w87ei")
-region = Rect2(0, 0, 32, 64)
+region = Rect2(160, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5sn2"]
 atlas = ExtResource("2_w87ei")
@@ -31,10 +31,6 @@ region = Rect2(96, 0, 32, 64)
 atlas = ExtResource("2_w87ei")
 region = Rect2(128, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xi5wo"]
-atlas = ExtResource("2_w87ei")
-region = Rect2(160, 0, 32, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xguhv"]
 animations = [{
 "frames": [{
@@ -47,7 +43,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p5fgp")
+"texture": SubResource("AtlasTexture_xi5wo")
 }],
 "loop": false,
 "name": &"open",
@@ -87,7 +83,7 @@ is_big_door = true
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -12)
 sprite_frames = SubResource("SpriteFrames_xguhv")
-animation = &"close"
+animation = &"opening"
 
 [node name="Area2D" type="Area2D" parent="."]
 
