@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgdogqcvm7qc6"]
 
-[ext_resource type="Script" uid="uid://krr5mdd2n4ea" path="res://scenes/bot_spawn.gd" id="1_xnges"]
+[ext_resource type="Script" uid="uid://krr5mdd2n4ea" path="res://scripts/bot_spawn.gd" id="1_xnges"]
 
 [node name="BotSpawn" type="Node2D"]
 script = ExtResource("1_xnges")

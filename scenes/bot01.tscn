@@ -146,7 +146,7 @@ offset = Vector2(9, 0)
 [node name="BotCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fjrip")
 
-[node name="Area2D" type="Area2D" parent="BotCollision"]
+[node name="Area2D" type="Area2D" parent="BotCollision" groups=["bot"]]
 
 [node name="BotAccess" type="CollisionShape2D" parent="BotCollision/Area2D"]
 position = Vector2(0, -18)

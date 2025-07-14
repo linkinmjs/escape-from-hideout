@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://7yo3dj1wx48p"]
+
+[ext_resource type="Texture2D" uid="uid://cpenu7ysdp43y" path="res://assets/sprites/traps/circular saw/11.png" id="1_llbhu"]
+[ext_resource type="Script" uid="uid://clm6gev2l2b1c" path="res://scripts/trap.gd" id="1_tvnf2"]
+[ext_resource type="AudioStream" uid="uid://b3180qxbnwho0" path="res://assets/sounds/Hit26.wav" id="3_qas4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvnf2"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qas4d"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s0el"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_111c8"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8vn2"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv303"]
+atlas = ExtResource("1_llbhu")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ti6gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvnf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qas4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s0el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_111c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8vn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv303")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2jnu"]
+radius = 10.9774
+
+[node name="Trap01" type="Node2D" groups=["trap"]]
+script = ExtResource("1_tvnf2")
+
+[node name="CircularSaw" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ti6gm")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.361941
+
+[node name="Area2D" type="Area2D" parent="CircularSaw"]
+scale = Vector2(1.00206, 1.00206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircularSaw/Area2D"]
+shape = SubResource("CircleShape2D_u2jnu")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qas4d")
+
+[connection signal="body_entered" from="CircularSaw/Area2D" to="." method="_on_area_2d_body_entered"]

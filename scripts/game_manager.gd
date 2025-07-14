@@ -10,6 +10,7 @@ var bot_last_position = Vector2()
 var bot_last_level = 0
 
 func lost_life():
-	lifes =- 1
+	print(lifes)
+	lifes = lifes -1
 	if lifes == 0:
 		LevelManager.game_over()

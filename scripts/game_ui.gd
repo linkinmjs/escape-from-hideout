@@ -1,5 +1,5 @@
 extends CanvasLayer
-	
+
 func _physics_process(delta: float) -> void:
 	var life_label:String = "Vidas: " + str(GameManager.lifes)
 	var level_label:String = "Nivel: " + str(LevelManager.actual_level)
@@ -13,9 +13,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_label_timer_timeout() -> void:
 	var inactive_weapons_label = $HBoxContainer/InactiveWeapons
-	var inactive_weapons_timer = $HBoxContainer/Label/LabelTimer
+	var inactive_weapons_timer = $HBoxContainer/InactiveWeapons/LabelTimer
 	
 	if GameManager.is_mounted:
+		$HBoxContainer/InactiveWeapons/LabelTimer.start()
 		if inactive_weapons_label.visible:
 			inactive_weapons_label.visible = false
 		elif !inactive_weapons_label.visible:
